@@ -6,11 +6,15 @@ type Caller interface {
 	Call(url string) (*http.Response, error)
 }
 
-type caller struct {
-	cl *http.Client
+type Getter interface {
+	Get(url string) (*http.Response, error)
 }
 
-func NewCaller(cl *http.Client) *caller {
+type caller struct {
+	cl Getter
+}
+
+func NewCaller(cl Getter) *caller {
 	return &caller{cl: cl}
 }
 
