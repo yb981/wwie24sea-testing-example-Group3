@@ -16,11 +16,6 @@ type mockDB struct {
 	sql.DB
 }
 
-// Dummy service structure
-type service struct {
-	db *sql.DB
-}
-
 // Test for NewService function
 func TestNewService(t *testing.T) {
 	// 1. Create a mock database object
